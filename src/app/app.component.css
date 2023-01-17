@@ -1,0 +1,146 @@
+mat-label,
+.mat-radio-label,
+p {
+    color: #5B727C;
+    font-size: 14px;
+}
+
+.container {
+    padding: 8rem;
+    background: #E5E5E5;
+}
+
+.mat-horizontal-stepper-header-container {
+    background: #EEF2F4;
+    pointer-events: none;
+}
+
+.mat-step-icon-selected {
+    background-color: #1362A6 !important;
+}
+
+.mat-step-icon-state-edit {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.mat-stepper-horizontal-line {
+    opacity: 0;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+.mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.align-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.flavour-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    /* width: 109px; */
+}
+
+.flavour-container>.mat-form-field {
+    width: 4rem;
+}
+
+.flavour-container>mat-label {
+    min-width: 8rem;
+    margin-top: 15px;
+
+}
+
+.flavour-form-container {
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr;
+    grid-gap: 20px;
+    margin: 2rem;
+    justify-content: center;
+}
+
+.mat-form-field-type-mat-select>div>div {
+    box-shadow: 0px 3px 9px -4px;
+}
+
+.tab-haeding {
+    text-align: center;
+    font-weight: 500;
+}
+
+.flavour-tab-haeding {
+    text-align: center;
+    font-weight: 500;
+    padding: 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-danger {
+    color: red;
+}
+
+.align-payment-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.align-payment-action :nth-child(2) {
+    display: flex;
+    gap: 1rem;
+}
+
+.mat-raised-button.mat-primary {
+    background-color: #067984;
+    color: white;
+}
+
+.scoop-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+table>tr,
+td,
+th {
+    color: #5B727C;
+    font-size: 14px;
+    border: 1px solid #E5E5E5;
+    padding: 1rem 0.5rem;
+    border-radius: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /* box-shadow: 0px 0px 10px -6px; */
+    margin: 2rem;
+}
+
+tr>td:nth-child(1),
+td:last-child {
+    font-weight: bold;
+}
+
+.table-container {
+    display: flex;
+}

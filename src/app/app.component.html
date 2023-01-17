@@ -1,0 +1,70 @@
+<section class="container">
+
+
+  <mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!" #stepper>
+    <mat-step [stepControl]="userFormGroup" label="Choose Base">
+      <form [formGroup]="userFormGroup">
+        <div class="form-container">
+          <p class="tab-haeding">
+            Welcome to the Trapeze Ice Cream Shop! <br />
+            Who is buying, and what base would you like to have?
+          </p>
+          <mat-form-field appearance="fill">
+            <mat-label>Select an user</mat-label>
+            <mat-select formControlName="customerName">
+              <div *ngFor="let user of users">
+                <mat-option value={{user?.name}}>{{user?.name}}</mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+          <mat-radio-group formControlName="base" aria-label="Select an option">
+            <div *ngFor="let base of coneBaseList">
+              <mat-radio-button value={{base?.value}}>{{base?.name}}</mat-radio-button>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div class="align-action">
+          <button mat-raised-button color="primary" [disabled]="userFormGroup.invalid" matStepperNext>Proceed &
+            Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="flavoursFormGroup" label="Choose Flavour">
+      <form [formGroup]="flavoursFormGroup" (ngSubmit)="onSubmitFlavour()">
+        <p class="flavour-tab-haeding">
+          Awesome! Please select the number of scoops of each flavour.
+        </p>
+        <div class="flavour-form-container">
+          <div *ngFor="let flavour of flavours" class="flavour-container">
+            <mat-form-field appearance="fill">
+              <input matInput formControlName={{flavour?.value}} type="number" min="1" max="4">
+            </mat-form-field>
+            <mat-label>{{flavour?.label}}</mat-label>
+          </div>
+        </div>
+        <p class="text-center">
+          <b>Note</b> : <span class="text-danger">You can add upto {{scoopLimit}} scoops.</span>
+        </p>
+        <div class="align-action">
+          <button mat-raised-button color="primary" matStepperPrevious (click)="clearFlavourForm()">Back</button>
+          <button mat-raised-button color="primary" type="submit" type="submit" [disabled]="!isValidScoopCount"
+            matStepperNext>Proceed
+            & Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step label="Payment">
+      <app-table [finalBaseObj]="finalBaseObj" [orderedScoopList]="orderedScoopList" [scoopTotalCost]="scoopTotalCost"
+        [totalCost]="totalCost"></app-table>
+      <div class="align-payment-action">
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Edit Order</button>
+        </div>
+        <div>
+          <button mat-raised-button (click)="stepper.reset(); resetForm();">Cancel</button>
+          <button mat-raised-button color="primary" (click)="placeOrder()" matStepperNext>Proceed With Payment</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</section>

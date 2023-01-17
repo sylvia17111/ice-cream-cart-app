@@ -1,0 +1,28 @@
+<div class="table-container">
+    <table>
+      <thead>
+        <th colspan="3">Order Summary</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td> Base</td>
+          <td>{{finalBaseObj?.name}}</td>
+          <td>${{finalBaseObj?.price}}</td>
+        </tr>
+        <tr>
+          <td>Flavours</td>
+          <td>
+            <p *ngFor="let scoop of orderedScoopList">
+              <span>{{scoop?.name}}</span>, &nbsp;&nbsp;
+              <span>Scoop Qty. - {{scoop?.quantity}}</span>
+            </p><br />
+          </td>
+          <td>${{scoopTotalCost}}</td>
+        </tr>
+        <tr>
+          <td colspan="2"> Grand Total</td>
+          <td>${{totalCost}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
